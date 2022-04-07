@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MySeriesList">
         <activity
-            android:name=".details.MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
