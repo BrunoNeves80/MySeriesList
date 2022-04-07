@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".main.MainFragment">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -12,7 +13,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/hello_blank_fragment" />
-        
-    </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/navButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="28dp"
+            android:layout_marginBottom="40dp"
+            android:background="@color/teal_200"
+            android:src="@drawable/ic_add"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
