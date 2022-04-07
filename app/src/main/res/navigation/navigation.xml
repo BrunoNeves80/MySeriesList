@@ -11,11 +11,11 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_detailsFragment3"
+            android:id="@+id/action_mainFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
             app:popUpTo="@id/mainFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_searchFragment3"
+            android:id="@+id/action_mainFragment_to_searchFragment"
             app:destination="@id/searchFragment"
             app:popUpTo="@id/mainFragment" />
     </fragment>
@@ -30,8 +30,7 @@
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
-            android:id="@+id/action_searchFragment3_to_detailsFragment3"
-            app:destination="@id/detailsFragment"
-            app:popUpTo="@id/searchFragment" />
+            android:id="@+id/action_searchFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
 </navigation>
