@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">My Series List</string>
+    <string name="main_fragment">My Series List</string>
+    <string name="search_fragment">Search Series</string>
+    <string name="details_fragment">Series Details</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_main_fragment">Hello Main</string>
     <string name="hello_details_fragment">Hello Details</string>
