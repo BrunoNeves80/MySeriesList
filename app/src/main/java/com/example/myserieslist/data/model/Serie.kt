@@ -1,5 +1,6 @@
 package com.example.myserieslist.data.model
 
+import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 //model of de database elements
@@ -10,5 +11,8 @@ data class Serie(
     val overview: String?,
     val poster_path: String,
     val first_air_date: String,
-    val vote_average: String,
-)
+    val vote_average: String
+) : Parcelable {
+    val baseUrl
+        get() = ""
+}
