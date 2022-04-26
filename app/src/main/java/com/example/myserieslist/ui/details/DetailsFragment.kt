@@ -1,4 +1,4 @@
-package com.example.myserieslist.details
+package com.example.myserieslist.ui.details
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
