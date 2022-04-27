@@ -12,7 +12,7 @@ interface SeriesListDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addToList(seriesList: Series)
 
-    @Query("SELECT * FROM series")
+    @Query("SELECT * FROM series ORDER BY first_air_date DESC")
     suspend fun getSeriesList(): LiveData<List<Series>>
 
     @Query("SELECT count(*) FROM series WHERE series.id_Serie = :id ")
