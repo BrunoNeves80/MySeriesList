@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
 
-@Entity(tableName = "series_list")
+@Entity(tableName = "series")
 @Parcelize
-data class SeriesList(
+data class Series(
     val id_Serie: String,
     val name: String,
     val overview: String?,
