@@ -15,10 +15,22 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/hello_main_fragment"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            tools:layout_editor_absoluteX="-16dp"
+            tools:layout_editor_absoluteY="137dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello_main_fragment"
+            android:textSize="30dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="36dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/navButton"
@@ -44,6 +56,40 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:layout_editor_absoluteX="282dp" />
 
+        <Button
+            android:id="@+id/insert_db"
+            android:layout_width="101dp"
+            android:layout_height="39dp"
+            android:text="Insert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/remove_db"
+            android:layout_width="101dp"
+            android:layout_height="39dp"
+            android:text="Remove"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.631"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/search_db"
+            android:layout_width="101dp"
+            android:layout_height="39dp"
+            android:text="Search"
+            app:layout_constraintBottom_toTopOf="@+id/remove_db"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/insert_db"
+            app:layout_constraintVertical_bias="0.133"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
