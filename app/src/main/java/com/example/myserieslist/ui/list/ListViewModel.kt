@@ -58,7 +58,7 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
 
     fun removeFromList() {
         CoroutineScope(Dispatchers.IO).launch {
-            seriesRepository.removeFromList("3a")
+            seriesRepository.removeFromList("2a")
         }
     }
 

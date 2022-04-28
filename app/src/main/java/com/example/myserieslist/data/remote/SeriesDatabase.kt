@@ -21,7 +21,6 @@ fun getDatabase(context: Context): SeriesDatabase {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(context.applicationContext,
                 SeriesDatabase::class.java, "series_db").build()
-            Log.i("qqq" , "getdatabase")
         }
     }
     return INSTANCE
