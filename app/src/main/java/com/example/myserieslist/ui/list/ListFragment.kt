@@ -10,7 +10,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.myserieslist.R
+import com.example.myserieslist.data.model.Serie
+import com.example.myserieslist.data.remote.SeriesDatabase
+import com.example.myserieslist.data.remote.getDatabase
 import com.example.myserieslist.databinding.FragmentListBinding
+import kotlinx.android.synthetic.main.fragment_list.*
 
 
 /**
@@ -22,7 +26,6 @@ class ListFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        Log.i("qqq", "Inspect")
         ViewModelProvider(this, ListViewModel.Factory(activity.application))
             .get(ListViewModel::class.java)
     }
@@ -31,7 +34,6 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.i("qqq", "create view")
         val binding = DataBindingUtil.inflate<FragmentListBinding>(
             inflater, R.layout.fragment_list, container,false)
 
@@ -44,6 +46,19 @@ class ListFragment : Fragment() {
         binding.detailsButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_mainFragment_to_detailsFragment)
         }
+
+        binding.insertDb.setOnClickListener { view : View ->
+            viewModel.addToList()
+        }
+
+        binding.searchDb.setOnClickListener { view : View ->
+            viewModel.checkSerie()
+        }
+
+        binding.removeDb.setOnClickListener { view : View ->
+            viewModel.removeFromList()
+        }
+
         // Inflate the layout for this fragment
         return binding.root
     }
