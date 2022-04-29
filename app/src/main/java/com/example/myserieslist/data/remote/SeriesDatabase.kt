@@ -16,7 +16,6 @@ abstract class SeriesDatabase : RoomDatabase(){
 private lateinit var INSTANCE: SeriesDatabase
 
 fun getDatabase(context: Context): SeriesDatabase {
-    Log.i("qqq", "database")
     synchronized(SeriesDatabase::class.java) {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(context.applicationContext,

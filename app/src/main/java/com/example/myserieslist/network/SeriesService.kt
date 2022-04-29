@@ -1,10 +1,11 @@
-package com.example.myserieslist.api
+package com.example.myserieslist.network
 
+import com.example.myserieslist.network.SeriesResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface SeriesApi {
+interface SeriesService {
 
     companion object{
         //instantiate variables to api location
@@ -13,8 +14,6 @@ interface SeriesApi {
     }
 
     @GET("tv/popular")
-    fun getPopularSeries(
-        @Query("api_key") apiKey: String = API_KEY
-    ) : Call<SeriesResponse>
+    suspend fun getPopularSeries() : SeriesResponse
 
 }

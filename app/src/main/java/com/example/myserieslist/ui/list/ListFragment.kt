@@ -15,6 +15,8 @@ import com.example.myserieslist.data.remote.SeriesDatabase
 import com.example.myserieslist.data.remote.getDatabase
 import com.example.myserieslist.databinding.FragmentListBinding
 import kotlinx.android.synthetic.main.fragment_list.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 /**
@@ -59,9 +61,14 @@ class ListFragment : Fragment() {
             viewModel.removeFromList()
         }
 
+        binding.logDb.setOnClickListener { view : View ->
+            viewModel.getListSerie()
+        }
+
         // Inflate the layout for this fragment
         return binding.root
     }
+
 }
 
 

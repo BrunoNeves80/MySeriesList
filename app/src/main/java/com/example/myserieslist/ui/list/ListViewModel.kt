@@ -2,12 +2,10 @@ package com.example.myserieslist.ui.list
 
 import android.app.Application
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.*
-import androidx.room.Room
-import com.example.myserieslist.data.model.Serie
 import com.example.myserieslist.data.remote.Series
 import com.example.myserieslist.data.remote.getDatabase
+import com.example.myserieslist.network.SeriesNetwork
 import com.example.myserieslist.repository.ListSerieRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -62,6 +60,11 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    //fun getListSerie() = seriesRepository.getListSerie(id)
+    fun getListSerie() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val seriesList = SeriesNetwork.SERIE_SERVICE.getPopularSeries()
+            Log.i("qqq", seriesList.results[0].name)
+        }
+    }
 
 }
