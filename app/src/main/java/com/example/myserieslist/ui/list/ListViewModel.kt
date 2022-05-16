@@ -36,11 +36,11 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
         CoroutineScope(Dispatchers.IO).launch {
             seriesRepository.addToList(
                 Series(
-                    "1a",
-                    "chico",
+                    "2a",
+                    "ze",
                     "milk",
                     "pacote",
-                    "do ar",
+                    "12345",
                     "0"
                 )
             )
@@ -49,21 +49,19 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
 
     fun checkSerie() {
         CoroutineScope(Dispatchers.IO).launch {
-            val serie = seriesRepository.checkSerie("4a")
-            Log.i("qqq", serie.name)
+            val serie = seriesRepository.checkSerie("2a")
         }
     }
 
     fun removeFromList() {
         CoroutineScope(Dispatchers.IO).launch {
-            seriesRepository.removeFromList("2a")
+            seriesRepository.removeFromList("2a" )
         }
     }
 
     fun getListSerie() {
         CoroutineScope(Dispatchers.IO).launch {
-            val seriesList = SeriesNetwork.SERIE_SERVICE.getPopularSeries()
-            Log.i("qqq", seriesList.results[0].name)
+            val seriesList = SeriesNetwork.serie_service.getPopularSeries()
         }
     }
 
