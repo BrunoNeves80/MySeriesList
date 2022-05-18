@@ -32,36 +32,39 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun addToList() {
+    /*TODO("This code bellow was used for testing but maybe
+       it will be used in the future")
+    with some changes")
+    fun addToList(series: Series) {
         CoroutineScope(Dispatchers.IO).launch {
             seriesRepository.addToList(
                 Series(
-                    "2a",
-                    "ze",
-                    "milk",
-                    "pacote",
-                    "12345",
-                    "0"
+                    series.id_Serie,
+                    series.name,
+                    series.overview,
+                    series.poster_path,
+                    series.first_air_date,
+                    series.vote_average
                 )
             )
         }
     }
 
-    fun checkSerie() {
+    fun checkSerie(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val serie = seriesRepository.checkSerie("2a")
+            seriesRepository.checkSerie(id)
         }
     }
 
-    fun removeFromList() {
+    fun removeFromList(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            seriesRepository.removeFromList("2a" )
+            seriesRepository.removeFromList(id)
         }
-    }
+    }*/
 
     fun getListSerie() {
         CoroutineScope(Dispatchers.IO).launch {
-            val seriesList = SeriesNetwork.serie_service.getPopularSeries()
+            SeriesNetwork.serie_service.getPopularSeries()
         }
     }
 
