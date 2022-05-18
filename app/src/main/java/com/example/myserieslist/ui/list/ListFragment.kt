@@ -49,21 +49,23 @@ class ListFragment : Fragment() {
             view.findNavController().navigate(R.id.action_mainFragment_to_detailsFragment)
         }
 
-        binding.insertDb.setOnClickListener { view : View ->
-            viewModel.addToList()
-        }
+        TODO("the listeners bellow are just for test and they will be\n" +
+                "removed in the future")
+        /* binding.insertDb.setOnClickListener { view : View ->
+             viewModel.addToList()
+         }
 
-        binding.searchDb.setOnClickListener { view : View ->
-            viewModel.checkSerie()
-        }
+         binding.searchDb.setOnClickListener { view : View ->
+             viewModel.checkSerie()
+         }
 
-        binding.removeDb.setOnClickListener { view : View ->
-            viewModel.removeFromList()
-        }
+         binding.removeDb.setOnClickListener { view : View ->
+             viewModel.removeFromList()
+         }
 
-        binding.logDb.setOnClickListener { view : View ->
-            viewModel.getListSerie()
-        }
+         binding.logDb.setOnClickListener { view : View ->
+             viewModel.getListSerie()
+         }*/
 
         // Inflate the layout for this fragment
         return binding.root
