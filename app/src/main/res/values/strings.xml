@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">My Series List</string>
     <string name="main_fragment">My Series List</string>
-    <string name="search_fragment">Search Series</string>
+    <string name="search_fragment">Popular Series</string>
     <string name="details_fragment">Series Details</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_main_fragment">Hello Main</string>
-    <string name="hello_details_fragment">Hello Details</string>
-    <string name="hello_search_fragment">Hello Search</string>
+    <string name="hello_main_fragment">Main</string>
+    <string name="hello_details_fragment">Details</string>
+    <string name="hello_search_fragment">Search</string>
 </resources>
