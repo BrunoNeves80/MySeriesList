@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.myserieslist.data.model.Series
 
 @Dao
 interface SeriesListDao {
@@ -15,9 +16,9 @@ interface SeriesListDao {
     @Query("SELECT * FROM series ORDER BY id DESC")
     fun getSeries(): LiveData<List<Series>>
 
-    @Query("SELECT * FROM series WHERE series.id_Serie = :id ")
+    @Query("SELECT * FROM series WHERE series.id = :id ")
     suspend fun checkSerie(id: String): Series
 
-    @Query("DELETE FROM series WHERE series.id_Serie = :id")
+    @Query("DELETE FROM series WHERE series.id = :id")
     suspend fun removeSeries(id: String): Int
 }
