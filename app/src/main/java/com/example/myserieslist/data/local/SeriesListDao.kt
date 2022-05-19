@@ -19,5 +19,5 @@ interface SeriesListDao {
     suspend fun checkSerie(id: String): Series
 
     @Query("DELETE FROM series WHERE series.id_Serie = :id")
-    suspend fun removeFromList(id: String): Int
+    suspend fun removeSeries(id: String): Int
 }
