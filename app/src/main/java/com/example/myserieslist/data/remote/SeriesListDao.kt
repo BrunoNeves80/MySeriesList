@@ -13,7 +13,7 @@ interface SeriesListDao {
     suspend fun addToList(seriesList: Series)
 
     @Query("SELECT * FROM series ORDER BY id DESC")
-    fun getSeriesList(): LiveData<List<Series>>
+    fun getSeries(): LiveData<List<Series>>
 
     @Query("SELECT * FROM series WHERE series.id_Serie = :id ")
     suspend fun checkSerie(id: String): Series
