@@ -9,7 +9,6 @@ import java.io.Serializable
 @Entity(tableName = "series")
 @Parcelize
 data class Series(
-    val id_Serie: String,
     val name: String,
     val overview: String?,
     val poster_path: String,
