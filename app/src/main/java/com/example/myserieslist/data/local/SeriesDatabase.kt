@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.myserieslist.data.model.Series
 
 @Database(entities = [Series::class], version = 1)
 abstract class SeriesDatabase : RoomDatabase() {
