@@ -2,8 +2,9 @@ package com.example.myserieslist.ui.list
 
 import android.app.Application
 import android.util.Log
-import androidx.lifecycle.*
-import com.example.myserieslist.data.remote.Series
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.myserieslist.data.remote.getDatabase
 import com.example.myserieslist.network.SeriesNetwork
 import com.example.myserieslist.repository.ListSerieRepository
@@ -23,7 +24,6 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
      */
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            Log.i("qqq", "Factory")
             if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
                 return ListViewModel(app) as T
@@ -67,5 +67,4 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
             SeriesNetwork.serie_service.getPopularSeries()
         }
     }
-
 }
