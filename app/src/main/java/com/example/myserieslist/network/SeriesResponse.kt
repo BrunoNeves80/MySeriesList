@@ -1,7 +1,7 @@
 package com.example.myserieslist.network
 
-import com.example.myserieslist.data.model.Serie
+import com.example.myserieslist.data.model.Series
 
 data class SeriesResponse(
-    val results: List<Serie>
+    val results: List<Series>
 )
