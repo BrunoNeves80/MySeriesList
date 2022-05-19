@@ -1,4 +1,4 @@
-package com.example.myserieslist.data.remote
+package com.example.myserieslist.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

@@ -1,4 +1,4 @@
-package com.example.myserieslist.data.remote
+package com.example.myserieslist.data.local
 
 import android.content.Context
 import androidx.room.Database

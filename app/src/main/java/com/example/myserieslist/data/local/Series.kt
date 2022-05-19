@@ -1,4 +1,4 @@
-package com.example.myserieslist.data.remote
+package com.example.myserieslist.data.local
 
 import android.os.Parcelable
 import androidx.room.Entity
@@ -21,4 +21,3 @@ data class Series(
     val baseUrl
         get() = ""
 }
-
