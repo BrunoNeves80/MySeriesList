@@ -1,4 +1,4 @@
-package com.example.myserieslist.data.local
+package com.example.myserieslist.data.model
 
 import android.os.Parcelable
 import androidx.room.Entity
