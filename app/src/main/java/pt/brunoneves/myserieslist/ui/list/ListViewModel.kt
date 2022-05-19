@@ -1,16 +1,15 @@
 package pt.brunoneves.myserieslist.ui.list
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import pt.brunoneves.myserieslist.data.remote.getDatabase
-import pt.brunoneves.myserieslist.network.SeriesNetwork
 import pt.brunoneves.myserieslist.repository.ListSerieRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import pt.brunoneves.myserieslist.data.local.getDatabase
+import pt.brunoneves.myserieslist.network.SeriesNetwork
 
 class ListViewModel(app: Application) : AndroidViewModel(app) {
 
@@ -18,7 +17,7 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
      * The data source this ViewModel will fetch results from.
      */
     private val seriesRepository = ListSerieRepository(getDatabase(app))
-    
+
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
@@ -36,7 +35,6 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
         CoroutineScope(Dispatchers.IO).launch {
             seriesRepository.addToList(
                 Series(
-                    series.id_Serie,
                     series.name,
                     series.overview,
                     series.poster_path,

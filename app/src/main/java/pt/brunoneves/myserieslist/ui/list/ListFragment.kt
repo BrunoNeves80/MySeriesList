@@ -1,22 +1,13 @@
 package pt.brunoneves.myserieslist.ui.list
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import pt.brunoneves.myserieslist.R
-import pt.brunoneves.myserieslist.data.model.Serie
-import pt.brunoneves.myserieslist.data.remote.SeriesDatabase
-import pt.brunoneves.myserieslist.data.remote.getDatabase
 import pt.brunoneves.myserieslist.databinding.FragmentListBinding
-import kotlinx.android.synthetic.main.fragment_list.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 
 /**
@@ -49,9 +40,9 @@ class ListFragment : Fragment() {
             view.findNavController().navigate(R.id.action_mainFragment_to_detailsFragment)
         }
 
-        TODO("the listeners bellow are just for test and they will be\n" +
+        /* TODO("the listeners bellow are just for test and they will be\n" +
                 "removed in the future")
-        /* binding.insertDb.setOnClickListener { view : View ->
+        binding.insertDb.setOnClickListener { view : View ->
              viewModel.addToList()
          }
 
