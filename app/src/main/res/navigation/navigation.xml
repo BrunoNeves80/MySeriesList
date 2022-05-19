@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.myserieslist.ui.list.ListFragment"
+        android:name="pt.brunoneves.myserieslist.ui.list.ListFragment"
         android:label="@string/main_fragment"
         tools:layout="@layout/fragment_list" >
         <action
@@ -21,12 +21,12 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.myserieslist.ui.details.DetailsFragment"
+        android:name="pt.brunoneves.myserieslist.ui.details.DetailsFragment"
         android:label="@string/details_fragment"
         tools:layout="@layout/fragment_details" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.myserieslist.ui.search.SearchFragment"
+        android:name="pt.brunoneves.myserieslist.ui.search.SearchFragment"
         android:label="@string/search_fragment"
         tools:layout="@layout/fragment_search" >
         <action

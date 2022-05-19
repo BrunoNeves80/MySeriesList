@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.myserieslist.ui.list.ListViewModel" />
+            type="pt.brunoneves.myserieslist.ui.list.ListViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_fragment"
