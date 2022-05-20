@@ -11,7 +11,6 @@ class DetailsViewModel constructor(
 //        CoroutineScope(Dispatchers.IO).launch {
 //            repository.addToList(
 //                Series(
-//                    serie.id,
 //                    serie.name,
 //                    serie.overview,
 //                    serie.poster_path,
