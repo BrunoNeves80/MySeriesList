@@ -3,8 +3,8 @@
     <string name="main_fragment">My Series List</string>
     <string name="search_fragment">Popular Series</string>
     <string name="details_fragment">Series Details</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_main_fragment">Main</string>
-    <string name="hello_details_fragment">Details</string>
-    <string name="hello_search_fragment">Search</string>
+    <!-- TODO: the following it just for testing they will be deleted -->
+    <string name="Main_fragment">Main</string>
+    <string name="Details_fragment">Details</string>
+    <string name="Search_fragment">Search</string>
 </resources>
