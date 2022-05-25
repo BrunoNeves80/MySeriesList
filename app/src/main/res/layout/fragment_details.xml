@@ -10,7 +10,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_details_fragment"
+            android:text="@string/Details_fragment"
             android:textSize="30dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

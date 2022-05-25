@@ -18,7 +18,7 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_main_fragment"
+            android:text="@string/Main_fragment"
             android:textSize="30dp"
             tools:layout_editor_absoluteX="-16dp"
             tools:layout_editor_absoluteY="137dp" />
@@ -27,7 +27,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_main_fragment"
+            android:text="@string/Main_fragment"
             android:textSize="30dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="-28dp" />

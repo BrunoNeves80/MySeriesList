@@ -12,7 +12,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_search_fragment"
+            android:text="@string/Search_fragment"
             android:textSize="30dp" />
 
         <Button
