@@ -12,5 +12,4 @@ interface SeriesService {
 
     @GET("tv/popular?api_key=$API_KEY")
     suspend fun getPopularSeries(): SeriesResponse
-
 }

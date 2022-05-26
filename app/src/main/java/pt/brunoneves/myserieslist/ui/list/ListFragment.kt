@@ -9,7 +9,6 @@ import androidx.navigation.findNavController
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentListBinding
 
-
 /**
  * A simple [Fragment] subclass.
  */
@@ -61,7 +60,4 @@ class ListFragment : Fragment() {
         // Inflate the layout for this fragment
         return binding.root
     }
-
 }
-
-

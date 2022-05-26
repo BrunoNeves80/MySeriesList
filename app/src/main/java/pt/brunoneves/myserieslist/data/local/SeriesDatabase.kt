@@ -8,9 +8,7 @@ import pt.brunoneves.myserieslist.data.model.Series
 
 @Database(entities = [Series::class], version = 1)
 abstract class SeriesDatabase : RoomDatabase() {
-
     abstract val seriesListDao: SeriesListDao
-
 }
 
 private lateinit var INSTANCE: SeriesDatabase
