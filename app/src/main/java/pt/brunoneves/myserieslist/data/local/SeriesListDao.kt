@@ -16,7 +16,7 @@ interface SeriesListDao {
     fun getSeriesList(): LiveData<List<Series>>
 
     @Query("SELECT * FROM series WHERE series.id = :id ")
-    suspend fun checkSerie(id: String): Series
+    suspend fun getSeries(id: String): Series
 
     @Query("DELETE FROM series WHERE series.id = :id")
     suspend fun removeSeries(id: String): Int
