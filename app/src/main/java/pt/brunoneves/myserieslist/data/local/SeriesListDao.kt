@@ -10,7 +10,7 @@ import pt.brunoneves.myserieslist.data.model.Series
 @Dao
 interface SeriesListDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addToList(seriesList: Series)
+    suspend fun insertSeries(series: Series)
 
     @Query("SELECT * FROM series ORDER BY id DESC")
     fun getSeries(): LiveData<List<Series>>
