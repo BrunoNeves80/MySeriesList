@@ -6,10 +6,10 @@ import pt.brunoneves.myserieslist.data.model.Series
 class ListSerieRepository constructor(
     private val database: SeriesDatabase
 ) {
-    suspend fun addToList(seriesList: Series) = database.seriesListDao.insertSeries(seriesList)
-    suspend fun getListSerie(seriesList: Series) = database.seriesListDao.getSeriesList()
-    suspend fun checkSerie(id: String) = database.seriesListDao.getSeries(id)
-    suspend fun removeFromList(id: String) {
+    suspend fun insertSeries(series: Series) = database.seriesListDao.insertSeries(series)
+    suspend fun getSeriesList(series: Series) = database.seriesListDao.getSeriesList()
+    suspend fun getSeries(id: String) = database.seriesListDao.getSeries(id)
+    suspend fun deleteSeries(id: String) {
         database.seriesListDao.deleteSeries(id)
     }
 }
