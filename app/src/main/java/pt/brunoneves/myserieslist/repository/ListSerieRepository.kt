@@ -10,6 +10,6 @@ class ListSerieRepository constructor(
     suspend fun getListSerie(seriesList: Series) = database.seriesListDao.getSeriesList()
     suspend fun checkSerie(id: String) = database.seriesListDao.getSeries(id)
     suspend fun removeFromList(id: String) {
-        database.seriesListDao.removeSeries(id)
+        database.seriesListDao.deleteSeries(id)
     }
 }

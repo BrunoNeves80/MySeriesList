@@ -19,5 +19,5 @@ interface SeriesListDao {
     suspend fun getSeries(id: String): Series
 
     @Query("DELETE FROM series WHERE series.id = :id")
-    suspend fun removeSeries(id: String): Int
+    suspend fun deleteSeries(id: String): Int
 }
