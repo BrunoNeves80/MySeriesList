@@ -3,7 +3,7 @@ package pt.brunoneves.myserieslist.ui.details
 import androidx.lifecycle.ViewModel
 import pt.brunoneves.myserieslist.repository.ListSerieRepository
 
-class DetailsSeriesModel constructor(
+class DetailsViewModel constructor(
     private val repository: ListSerieRepository
 ) : ViewModel() {
 
