@@ -21,10 +21,6 @@ class SearchFragment : Fragment() {
             R.layout.fragment_search, container, false
         )
 
-        binding.detailsButton.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_searchFragment_to_detailsFragment)
-        }
-
         setHasOptionsMenu(true)
 
         // Inflate the layout for this fragment

@@ -33,14 +33,6 @@ class ListFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-        binding.navButton.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_mainFragment_to_searchFragment)
-        }
-
-        binding.detailsButton.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_mainFragment_to_detailsFragment)
-        }
-
         setHasOptionsMenu(true)
 
         /* TODO("the listeners bellow are just for test and they will be\n" +
