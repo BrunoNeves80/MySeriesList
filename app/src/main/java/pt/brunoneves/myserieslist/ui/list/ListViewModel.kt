@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.brunoneves.myserieslist.data.local.getDatabase
+import pt.brunoneves.myserieslist.data.model.Series
 import pt.brunoneves.myserieslist.network.SeriesNetwork
 
 class ListViewModel(app: Application) : AndroidViewModel(app) {
@@ -27,18 +28,16 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    /*TODO("This code bellow was used for testing but maybe
-       it will be used in the future")
-    with some changes")
-    fun addToList(series: Series) {
+
+    fun addToList() {
         CoroutineScope(Dispatchers.IO).launch {
-            seriesRepository.addToList(
+            seriesRepository.insertSeries(
                 Series(
-                    series.name,
-                    series.overview,
-                    series.poster_path,
-                    series.first_air_date,
-                    series.vote_average
+                    name = "Ze Malha",
+                    overview = "Camarinha",
+                    poster_path = "12",
+                    first_air_date = "12345",
+                    vote_average =  "2222"
                 )
             )
         }
@@ -46,10 +45,10 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
 
     fun checkSerie(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            seriesRepository.checkSerie(id)
+            seriesRepository.getSeries(id)
         }
     }
-
+/*
     fun removeFromList(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
             seriesRepository.removeFromList(id)
