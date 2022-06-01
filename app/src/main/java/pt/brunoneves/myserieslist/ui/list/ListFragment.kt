@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentListBinding
 
+
 /**
  * A simple [Fragment] subclass.
  */
@@ -27,7 +28,8 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentListBinding>(
-            inflater, R.layout.fragment_list, container,false)
+            inflater, R.layout.fragment_list, container, false
+        )
 
         binding.viewModel = viewModel
 
@@ -39,8 +41,11 @@ class ListFragment : Fragment() {
             view.findNavController().navigate(R.id.action_mainFragment_to_detailsFragment)
         }
 
+        setHasOptionsMenu(true)
+
         /* TODO("the listeners bellow are just for test and they will be\n" +
                 "removed in the future")
+
         binding.insertDb.setOnClickListener { view : View ->
              viewModel.addToList()
          }
@@ -59,5 +64,10 @@ class ListFragment : Fragment() {
 
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_search, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 }
