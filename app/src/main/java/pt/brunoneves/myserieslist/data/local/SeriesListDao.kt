@@ -12,6 +12,9 @@ interface SeriesListDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSeries(series: Series)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertSeries(vararg series: Series?)
+
     @Query("SELECT * FROM series ORDER BY id DESC")
     fun getSeriesList(): LiveData<List<Series>>
 
