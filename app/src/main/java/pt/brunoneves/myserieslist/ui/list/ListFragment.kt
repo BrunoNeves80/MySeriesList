@@ -39,16 +39,16 @@ class ListFragment : Fragment() {
             view.findNavController().navigate(R.id.action_mainFragment_to_detailsFragment)
         }
 
-         /*TODO("the listeners bellow are just for test and they will be\n" +
-                "removed in the future")*/
+        /* TODO("the listeners bellow are just for test and they will be\n" +
+                "removed in the future")
         binding.insertDb.setOnClickListener { view : View ->
              viewModel.addToList()
          }
 
          binding.searchDb.setOnClickListener { view : View ->
-             viewModel.checkSerie("bruno")
+             viewModel.checkSerie()
          }
-/*
+
          binding.removeDb.setOnClickListener { view : View ->
              viewModel.removeFromList()
          }
