@@ -24,6 +24,7 @@
             app:spanCount="2"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp"
+            android:padding="2dp"
             tools:listitem="@layout/item_serie" />
 
         <TextView
