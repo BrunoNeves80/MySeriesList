@@ -2,7 +2,9 @@ package pt.brunoneves.myserieslist.ui.list
 
 import android.app.Application
 import android.view.View
+import android.widget.TextView
 import androidx.lifecycle.*
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,19 +32,38 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    init {
-
-    }
-
     val series = seriesRepository.getSeriesList()
 
-   /* private val _properties = MutableLiveData<List<Series>>()
+    fun getListSerie() {
+        CoroutineScope(Dispatchers.IO).launch {
+            SeriesNetwork.serie_service.getPopularSeries()
+        }
+    }
+}
 
-    val properties : LiveData<List<Series>>
-        get() = _properties
+/* TODO(to delete if will not be used in the future tickets)
+ val recyclerView: RecyclerView
+  val emptyView: TextView
+
+  recyclerView = rootView.findViewById(R.id.recycler_view)
+  emptyView = rootView.findViewById(R.id.empty_view)
 
 
-   *//* private fun getSeriesProperties(filter: SeriesNetwork) {
+  if (SeriesDatabase.isEmpty()) {
+      recyclerView.visibility = View.GONE
+      emptyView.visibility = View.VISIBLE
+  } else {
+      recyclerView.visibility = View.VISIBLE
+      emptyView.visibility = View.GONE
+  }
+
+ private val _properties = MutableLiveData<List<Series>>()
+
+  val properties : LiveData<List<Series>>
+      get() = _properties
+
+
+ *//* private fun getSeriesProperties(filter: SeriesNetwork) {
         viewModelScope.launch {
             try {
                 _properties.value = SeriesNetwork.serie_service.getPopularSeries()
@@ -52,51 +73,33 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
         }
     }*//*
 */
-   fun displayList() {
 
-       val list = listOf<Series>()
-       if (list.isEmpty()) {
-           binding.recyclerViewSerie.visibility = View.GONE
-           binding.emptyList.visibility = View.VISIBLE
-       } else {
-           binding.recyclerViewSerie.visibility = View.VISIBLE
-           binding.emptyList.visibility = View.GONE
-       }
-   }
 
-    fun getListSerie() {
-        CoroutineScope(Dispatchers.IO).launch {
-            SeriesNetwork.serie_service.getPopularSeries()
-        }
-    }
-
-    /*TODO("This code bellow was used for testing but maybe
-       it will be used in the future")
-    with some changes")
-    fun addToList(series: Series) {
-        CoroutineScope(Dispatchers.IO).launch {
-            seriesRepository.addToList(
-                Series(
-                    series.name,
-                    series.overview,
-                    series.poster_path,
-                    series.first_air_date,
-                    series.vote_average
-                )
+/*TODO("This code bellow was used for testing but maybe
+   it will be used in the future")
+with some changes")
+fun addToList(series: Series) {
+    CoroutineScope(Dispatchers.IO).launch {
+        seriesRepository.addToList(
+            Series(
+                series.name,
+                series.overview,
+                series.poster_path,
+                series.first_air_date,
+                series.vote_average
             )
-        }
+        )
     }
-
-    fun checkSerie(id: String) {
-        CoroutineScope(Dispatchers.IO).launch {
-            seriesRepository.checkSerie(id)
-        }
-    }
-
-    fun removeFromList(id: String) {
-        CoroutineScope(Dispatchers.IO).launch {
-            seriesRepository.removeFromList(id)
-        }
-    }*/
-
 }
+
+fun checkSerie(id: String) {
+    CoroutineScope(Dispatchers.IO).launch {
+        seriesRepository.checkSerie(id)
+    }
+}
+
+fun removeFromList(id: String) {
+    CoroutineScope(Dispatchers.IO).launch {
+        seriesRepository.removeFromList(id)
+    }
+}*/
