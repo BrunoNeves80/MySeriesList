@@ -1,21 +1,16 @@
 package pt.brunoneves.myserieslist.ui.list
 
 import android.app.Application
-import android.view.View
-import android.widget.TextView
 import androidx.lifecycle.*
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import pt.brunoneves.myserieslist.data.local.SeriesListDao
 import pt.brunoneves.myserieslist.data.local.getDatabase
-import pt.brunoneves.myserieslist.data.model.Series
 import pt.brunoneves.myserieslist.databinding.FragmentListBinding
 import pt.brunoneves.myserieslist.network.SeriesNetwork
 import pt.brunoneves.myserieslist.repository.ListSerieRepository
 
-class ListViewModel(app: Application) : AndroidViewModel(app) {
+class SearchViewModel(app: Application) : AndroidViewModel(app) {
 
     private lateinit var binding: FragmentListBinding
     /**
@@ -25,8 +20,8 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
-                return ListViewModel(app) as T
+            if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {
+                return SearchViewModel(app) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
