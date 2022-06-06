@@ -14,7 +14,6 @@ import pt.brunoneves.myserieslist.databinding.FragmentListBinding
  * A simple [Fragment] subclass.
  */
 class ListFragment : Fragment() {
-
     private val viewModel: ListViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
@@ -33,23 +32,29 @@ class ListFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-        binding.lifecycleOwner=this
+        binding.lifecycleOwner = this
 
         setHasOptionsMenu(true)
 
         // Get a reference to the ViewModel associated with this fragment.
         val ListViewModel =
             ViewModelProvider(
-                this,).get(ListViewModel::class.java)
+                this,
+            ).get(ListViewModel::class.java)
 
         val adapter = ListSeriesAdapter()
-
-        /*adapter.data = ListViewModel.series.value!!*/
 
         //create observer
         ListViewModel.series.observe(viewLifecycleOwner, Observer {
             it?.let {
                 adapter.data = it
+                if (adapter.data.isEmpty()) {
+                    binding.recyclerViewSerie.visibility = View.GONE
+                    binding.emptyList.visibility = View.VISIBLE
+                } else {
+                    binding.recyclerViewSerie.visibility = View.VISIBLE
+                    binding.emptyList.visibility = View.GONE
+                }
             }
         })
 
@@ -58,7 +63,6 @@ class ListFragment : Fragment() {
         // To use the View Model with data binding, you have to explicitly
         // give the binding object a reference to it.
         binding.viewModel = ListViewModel
-
 
         // Inflate the layout for this fragment
         return binding.root
