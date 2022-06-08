@@ -2,15 +2,11 @@ package pt.brunoneves.myserieslist.ui.list
 
 import android.app.Application
 import androidx.lifecycle.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import pt.brunoneves.myserieslist.data.local.getDatabase
 import pt.brunoneves.myserieslist.databinding.FragmentListBinding
-import pt.brunoneves.myserieslist.network.SeriesNetwork
 import pt.brunoneves.myserieslist.repository.ListSerieRepository
 
-class SearchViewModel(app: Application) : AndroidViewModel(app) {
+class ListViewModel(app: Application) : AndroidViewModel(app) {
 
     private lateinit var binding: FragmentListBinding
     /**
@@ -20,8 +16,8 @@ class SearchViewModel(app: Application) : AndroidViewModel(app) {
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {
-                return SearchViewModel(app) as T
+            if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
+                return ListViewModel(app) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
@@ -29,11 +25,6 @@ class SearchViewModel(app: Application) : AndroidViewModel(app) {
 
     val series = seriesRepository.getSeriesList()
 
-    fun getListSerie() {
-        CoroutineScope(Dispatchers.IO).launch {
-            SeriesNetwork.serie_service.getPopularSeries()
-        }
-    }
 }
 
 /* TODO(to delete if will not be used in the future tickets)
