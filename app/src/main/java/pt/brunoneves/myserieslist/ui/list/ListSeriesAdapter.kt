@@ -11,13 +11,17 @@ import com.bumptech.glide.request.RequestOptions
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.data.model.Series
 
-
 class ListSeriesAdapter : RecyclerView.Adapter<ListSeriesAdapter.ListSerieViewHolder>() {
     var data = listOf<Series>()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
+
+    var options = RequestOptions()
+        .centerCrop()
+        .placeholder(R.mipmap.ic_launcher_round)
+        .error(R.mipmap.ic_launcher_round)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListSerieViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -30,14 +34,10 @@ class ListSeriesAdapter : RecyclerView.Adapter<ListSeriesAdapter.ListSerieViewHo
         val item = data[position]
         holder.serieList.text = item.name
         Glide.with(holder.image)
-            .load("https://image.tmdb.org/t/p/w500" + item.poster_path)
+            .load("${item.baseUrl}${item.poster_path}" )
             .apply(options)
             .into(holder.image)
     }
-    var options: RequestOptions = RequestOptions()
-        .centerCrop()
-        .placeholder(R.mipmap.ic_launcher_round)
-        .error(R.mipmap.ic_launcher_round)
 
     override fun getItemCount(): Int = data.size
 
