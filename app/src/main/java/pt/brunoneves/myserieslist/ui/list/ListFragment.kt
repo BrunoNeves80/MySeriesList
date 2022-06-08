@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentListBinding
 
-
 /**
  * A simple [Fragment] subclass.
  */
