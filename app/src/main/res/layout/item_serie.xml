@@ -31,8 +31,7 @@
         android:layout_marginBottom="16dp"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:textOff=""
-        android:textOn="" />
+         />
 
     <TextView
         android:id="@+id/serie_title"
