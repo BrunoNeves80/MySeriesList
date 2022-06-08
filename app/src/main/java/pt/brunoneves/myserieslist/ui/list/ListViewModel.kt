@@ -14,6 +14,8 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
      */
     private val seriesRepository = ListSerieRepository(getDatabase(app))
 
+    val series = seriesRepository.getSeriesList()
+
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
@@ -22,9 +24,6 @@ class ListViewModel(app: Application) : AndroidViewModel(app) {
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
     }
-
-    val series = seriesRepository.getSeriesList()
-
 }
 
 /* TODO(to delete if will not be used in the future tickets)
