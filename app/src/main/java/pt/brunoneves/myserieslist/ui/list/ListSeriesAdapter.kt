@@ -34,7 +34,7 @@ class ListSeriesAdapter : RecyclerView.Adapter<ListSeriesAdapter.ListSerieViewHo
         val item = data[position]
         holder.serieList.text = item.name
         Glide.with(holder.image)
-            .load("${item.baseUrl}${item.poster_path}" )
+            .load("https://image.tmdb.org/t/p/w300" + item.poster_path)
             .apply(options)
             .into(holder.image)
     }
