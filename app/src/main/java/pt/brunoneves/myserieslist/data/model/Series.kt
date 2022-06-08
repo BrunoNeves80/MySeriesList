@@ -18,5 +18,5 @@ data class Series(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
     val baseUrl
-        get() = ""
+        get() = "https://image.tmdb.org/t/p/w300"
 }
