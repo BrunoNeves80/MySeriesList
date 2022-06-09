@@ -2,6 +2,7 @@ package pt.brunoneves.myserieslist.ui.search
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -11,10 +12,14 @@ import kotlinx.coroutines.launch
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentSearchBinding
 
+
 /**
  * A simple [Fragment] subclass.
  */
 class SearchFragment : Fragment() {
+    private lateinit var adapter: SearchSeriesAdapter
+    private lateinit var binding: FragmentSearchBinding
+    private lateinit var searchViewModel : SearchViewModel
     private val viewModel: SearchViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
@@ -26,7 +31,7 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentSearchBinding>(
+        binding = DataBindingUtil.inflate<FragmentSearchBinding>(
             inflater,
             R.layout.fragment_search, container, false
         )
@@ -36,10 +41,10 @@ class SearchFragment : Fragment() {
         setHasOptionsMenu(true)
 
         // Get a reference to the ViewModel associated with this fragment.
-        val searchViewModel = ViewModelProvider(this,)
+        searchViewModel = ViewModelProvider(this,)
             .get(SearchViewModel::class.java)
 
-        val adapter = SearchSeriesAdapter()
+        adapter = SearchSeriesAdapter()
         CoroutineScope(Dispatchers.IO).launch {
             val series = searchViewModel.getPopularSeries()
 
@@ -63,6 +68,32 @@ class SearchFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_search, menu)
-        super.onCreateOptionsMenu(menu, inflater)
+
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+        searchView.queryHint = "Search"
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                CoroutineScope(Dispatchers.IO).launch {
+                    val series = searchViewModel.getPopularSeries()
+
+                    requireActivity().runOnUiThread {
+                        adapter.data = series
+                        if (adapter.data.isEmpty()) {
+                            binding.recyclerViewSerie.visibility = View.GONE
+                            binding.NoResults.visibility = View.VISIBLE
+                        } else {
+                            binding.recyclerViewSerie.visibility = View.VISIBLE
+                            binding.NoResults.visibility = View.GONE
+                        }
+                    }
+                }
+                return true
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
+        return super.onCreateOptionsMenu(menu, inflater)
     }
 }
