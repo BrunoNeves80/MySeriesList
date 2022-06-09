@@ -45,6 +45,13 @@ class SearchFragment : Fragment() {
 
             requireActivity().runOnUiThread {
                 adapter.data = series
+                if (adapter.data.isEmpty()) {
+                    binding.recyclerViewSerie.visibility = View.GONE
+                    binding.NoResults.visibility = View.VISIBLE
+                } else {
+                    binding.recyclerViewSerie.visibility = View.VISIBLE
+                    binding.NoResults.visibility = View.GONE
+                }
             }
         }
 
