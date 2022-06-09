@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.search.SearchFragment">
 
+    <data>
+        <variable
+            name="searchModel"
+            type="pt.brunoneves.myserieslist.network.SeriesService" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/search_fragment"
         android:layout_width="match_parent"
@@ -16,12 +22,6 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             tools:listitem="@layout/item_serie"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/Search_fragment"
-            android:textSize="30dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
