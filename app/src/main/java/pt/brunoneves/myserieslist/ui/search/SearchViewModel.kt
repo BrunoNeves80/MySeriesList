@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import pt.brunoneves.myserieslist.data.model.Series
+import pt.brunoneves.myserieslist.network.SeriesNetwork
 
 class SearchViewModel (app: Application) : AndroidViewModel(app) {
     class Factory(val app: Application) : ViewModelProvider.Factory {
@@ -13,5 +15,9 @@ class SearchViewModel (app: Application) : AndroidViewModel(app) {
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
+    }
+
+    suspend fun getPopularSeries(): List<Series> {
+        return SeriesNetwork.serie_service.getPopularSeries().results
     }
 }
