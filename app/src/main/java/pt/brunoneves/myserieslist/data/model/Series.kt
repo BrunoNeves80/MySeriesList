@@ -17,6 +17,4 @@ data class Series(
 ) : Serializable, Parcelable {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
-    val baseUrl
-        get() = ""
 }
