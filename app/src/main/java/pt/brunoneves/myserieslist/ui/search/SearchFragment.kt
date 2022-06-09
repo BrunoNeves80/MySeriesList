@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.lifecycle.ViewModelProvider
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentSearchBinding
 
@@ -12,6 +15,13 @@ import pt.brunoneves.myserieslist.databinding.FragmentSearchBinding
  * A simple [Fragment] subclass.
  */
 class SearchFragment : Fragment() {
+    private val viewModel: SearchViewModel by lazy {
+        val activity = requireNotNull(this.activity) {
+            "You can only access the viewModel after onActivityCreated()"
+        }
+        ViewModelProvider(this, SearchViewModel.Factory(activity.application))
+            .get(SearchViewModel::class.java)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,7 +31,24 @@ class SearchFragment : Fragment() {
             R.layout.fragment_search, container, false
         )
 
+        binding.lifecycleOwner = this
+
         setHasOptionsMenu(true)
+
+        // Get a reference to the ViewModel associated with this fragment.
+        val searchViewModel = ViewModelProvider(this,)
+            .get(SearchViewModel::class.java)
+
+        val adapter = SearchSeriesAdapter()
+        CoroutineScope(Dispatchers.IO).launch {
+            val series = searchViewModel.getPopularSeries()
+
+            requireActivity().runOnUiThread {
+                adapter.data = series
+            }
+        }
+
+        binding.recyclerViewSerie.adapter = adapter
 
         // Inflate the layout for this fragment
         return binding.root
