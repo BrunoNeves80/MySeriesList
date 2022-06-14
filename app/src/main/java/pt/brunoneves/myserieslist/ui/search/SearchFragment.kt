@@ -7,11 +7,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import kotlinx.android.synthetic.main.fragment_details.view.*
+import kotlinx.android.synthetic.main.item_serie.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentSearchBinding
+import pt.brunoneves.myserieslist.network.SeriesNetwork
+import pt.brunoneves.myserieslist.network.SeriesService
 
 /**
  * A simple [Fragment] subclass.
@@ -55,6 +59,7 @@ class SearchFragment : Fragment() {
                     binding.NoResults.visibility = View.VISIBLE
                 } else {
                     binding.recyclerViewSerie.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
                     binding.NoResults.visibility = View.GONE
                 }
             }
@@ -84,6 +89,7 @@ class SearchFragment : Fragment() {
                             binding.NoResults.visibility = View.VISIBLE
                         } else {
                             binding.recyclerViewSerie.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.GONE
                             binding.NoResults.visibility = View.GONE
                         }
                     }
