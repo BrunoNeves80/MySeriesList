@@ -40,7 +40,7 @@ class ListSeriesAdapter : RecyclerView.Adapter<ListSeriesAdapter.ListSerieViewHo
             .into(holder.image)
 
         holder.image.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_mainFragment_to_searchFragment)
+            view.findNavController().navigate(R.id.action_mainFragment_to_detailsFragment)
         }
     }
 
