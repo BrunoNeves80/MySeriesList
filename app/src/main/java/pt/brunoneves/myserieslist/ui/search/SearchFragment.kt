@@ -1,21 +1,17 @@
 package pt.brunoneves.myserieslist.ui.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import kotlinx.android.synthetic.main.fragment_details.view.*
-import kotlinx.android.synthetic.main.item_serie.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentSearchBinding
-import pt.brunoneves.myserieslist.network.SeriesNetwork
-import pt.brunoneves.myserieslist.network.SeriesService
 
 /**
  * A simple [Fragment] subclass.
@@ -23,7 +19,7 @@ import pt.brunoneves.myserieslist.network.SeriesService
 class SearchFragment : Fragment() {
     private lateinit var adapter: SearchSeriesAdapter
     private lateinit var binding: FragmentSearchBinding
-    private lateinit var searchViewModel : SearchViewModel
+    private lateinit var searchViewModel: SearchViewModel
     private val viewModel: SearchViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
@@ -31,6 +27,7 @@ class SearchFragment : Fragment() {
         ViewModelProvider(this, SearchViewModel.Factory(activity.application))
             .get(SearchViewModel::class.java)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,7 +42,7 @@ class SearchFragment : Fragment() {
         setHasOptionsMenu(true)
 
         // Get a reference to the ViewModel associated with this fragment.
-        searchViewModel = ViewModelProvider(this,)
+        searchViewModel = ViewModelProvider(this)
             .get(SearchViewModel::class.java)
 
         adapter = SearchSeriesAdapter()
@@ -78,9 +75,9 @@ class SearchFragment : Fragment() {
         val searchView = searchItem.actionView as SearchView
         searchView.queryHint = "Search"
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
+            override fun onQueryTextSubmit(name: String?): Boolean {
                 CoroutineScope(Dispatchers.IO).launch {
-                    val series = searchViewModel.getPopularSeries()
+                    val series = searchViewModel.getSeriesByName(name)
 
                     requireActivity().runOnUiThread {
                         adapter.data = series
@@ -96,6 +93,7 @@ class SearchFragment : Fragment() {
                 }
                 return true
             }
+
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
