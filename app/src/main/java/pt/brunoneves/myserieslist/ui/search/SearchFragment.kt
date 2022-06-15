@@ -47,7 +47,10 @@ class SearchFragment : Fragment() {
 
         adapter = SearchSeriesAdapter()
         CoroutineScope(Dispatchers.IO).launch {
-            val series = searchViewModel.getPopularSeries()
+            var series = searchViewModel.getPopularSeries()
+            series = series.sortedBy {
+                it.name
+            }
 
             requireActivity().runOnUiThread {
                 adapter.data = series
