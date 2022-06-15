@@ -1,11 +1,23 @@
 package pt.brunoneves.myserieslist.ui.details
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import pt.brunoneves.myserieslist.data.model.Series
 import pt.brunoneves.myserieslist.repository.ListSerieRepository
 
-class DetailsViewModel constructor(
-    private val repository: ListSerieRepository
-) : ViewModel() {
+class DetailsViewModel (series: Series, app : Application) : AndroidViewModel(app) {
+
+
+    private val _navigateToSelectedItem = MutableLiveData<Series>()
+    val navigateToSelectedItem :LiveData<Series>
+        get() = _navigateToSelectedItem
+
+    fun displaySeriesDetails(series: Series) {
+        _navigateToSelectedItem.value = series
+    }
 
 //    fun addToList(serie: Serie) {
 //        CoroutineScope(Dispatchers.IO).launch {

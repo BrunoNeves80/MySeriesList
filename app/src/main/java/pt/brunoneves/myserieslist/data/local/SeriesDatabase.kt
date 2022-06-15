@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import pt.brunoneves.myserieslist.data.model.Series
 import java.util.concurrent.Executors
 
-@Database(entities = [Series::class], version = 2)
+@Database(entities = [Series::class], version = 1)
 abstract class SeriesDatabase : RoomDatabase() {
     abstract val seriesListDao: SeriesListDao
 }
