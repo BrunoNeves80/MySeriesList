@@ -80,7 +80,10 @@ class SearchFragment : Fragment() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(name: String?): Boolean {
                 CoroutineScope(Dispatchers.IO).launch {
-                    val series = searchViewModel.getSeriesByName(name)
+                    var series = searchViewModel.getSeriesByName(name)
+                    series = series.sortedBy {
+                        it.name
+                    }
 
                     requireActivity().runOnUiThread {
                         adapter.data = series
