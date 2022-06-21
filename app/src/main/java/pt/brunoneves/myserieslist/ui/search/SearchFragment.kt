@@ -17,8 +17,11 @@ import pt.brunoneves.myserieslist.databinding.FragmentSearchBinding
  */
 class SearchFragment : Fragment() {
     private lateinit var adapter: SearchSeriesAdapter
+
     private lateinit var binding: FragmentSearchBinding
+
     private lateinit var searchViewModel: SearchViewModel
+
     private val viewModel: SearchViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
