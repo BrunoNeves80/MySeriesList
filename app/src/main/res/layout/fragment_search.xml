@@ -6,7 +6,7 @@
 
     <data>
         <variable
-            name="searchModel"
+            name="searchViewModel"
             type="pt.brunoneves.myserieslist.network.SeriesService" />
     </data>
 
