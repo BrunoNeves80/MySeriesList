@@ -2,12 +2,10 @@ package pt.brunoneves.myserieslist.ui.list
 
 import android.os.Bundle
 import android.view.*
-import android.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fragment_list.*
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentListBinding
 

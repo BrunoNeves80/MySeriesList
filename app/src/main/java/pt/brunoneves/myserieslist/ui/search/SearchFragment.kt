@@ -1,7 +1,6 @@
 package pt.brunoneves.myserieslist.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
