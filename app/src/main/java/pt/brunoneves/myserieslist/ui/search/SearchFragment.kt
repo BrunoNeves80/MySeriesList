@@ -78,7 +78,7 @@ class SearchFragment : Fragment() {
 
         val searchItem = menu.findItem(R.id.action_search)
         val searchView = searchItem.actionView as SearchView
-        searchView.queryHint = "Search"
+        searchView.queryHint = "@string/query_hint"
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(name: String?): Boolean {
                 CoroutineScope(Dispatchers.IO).launch {

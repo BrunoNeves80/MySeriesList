@@ -5,4 +5,6 @@
     <string name="details_fragment">Series Details</string>
     <!-- TODO: the following it just for testing they will be deleted -->
     <string name="Details_fragment">Details</string>
+    <string name="no_results">No Results</string>
+    <string name="query_hint">Search</string>
 </resources>
