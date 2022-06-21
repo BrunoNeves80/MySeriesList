@@ -12,9 +12,6 @@ import kotlinx.coroutines.launch
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentSearchBinding
 
-/**
- * A simple [Fragment] subclass.
- */
 class SearchFragment : Fragment() {
     private lateinit var adapter: SearchSeriesAdapter
 
