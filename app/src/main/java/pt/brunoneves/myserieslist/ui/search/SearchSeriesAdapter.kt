@@ -19,11 +19,6 @@ class SearchSeriesAdapter: RecyclerView.Adapter<SearchSeriesAdapter.SearchSerieV
             notifyDataSetChanged()
         }
 
-    var options = RequestOptions()
-        .centerCrop()
-        .placeholder(R.mipmap.ic_launcher_round)
-        .error(R.mipmap.ic_launcher_round)
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchSerieViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.item_serie, parent, false)
@@ -33,6 +28,12 @@ class SearchSeriesAdapter: RecyclerView.Adapter<SearchSeriesAdapter.SearchSerieV
 
     override fun onBindViewHolder(holder: SearchSerieViewHolder, position: Int) {
         val item = series[position]
+        
+        var options = RequestOptions()
+            .centerCrop()
+            .placeholder(R.mipmap.ic_launcher_round)
+            .error(R.mipmap.ic_launcher_round)
+
         holder.serieList.text = item.name
         Glide.with(holder.image)
             .load("https://image.tmdb.org/t/p/w300" + item.poster_path )
