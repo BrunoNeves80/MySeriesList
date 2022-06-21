@@ -13,7 +13,7 @@ import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.data.model.Series
 
 class SearchSeriesAdapter: RecyclerView.Adapter<SearchSeriesAdapter.SearchSerieViewHolder>() {
-    var data = listOf<Series>()
+    var series = listOf<Series>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -32,7 +32,7 @@ class SearchSeriesAdapter: RecyclerView.Adapter<SearchSeriesAdapter.SearchSerieV
     }
 
     override fun onBindViewHolder(holder: SearchSerieViewHolder, position: Int) {
-        val item = data[position]
+        val item = series[position]
         holder.serieList.text = item.name
         Glide.with(holder.image)
             .load("https://image.tmdb.org/t/p/w300" + item.poster_path )
@@ -44,7 +44,7 @@ class SearchSeriesAdapter: RecyclerView.Adapter<SearchSeriesAdapter.SearchSerieV
         }
     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int = series.size
 
     class SearchSerieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val serieList: TextView = itemView.findViewById(R.id.serie_title)
