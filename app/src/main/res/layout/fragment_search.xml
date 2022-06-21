@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_serie"
+            android:id="@+id/recycler_view_series"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/recycler_view_serie"
+            app:layout_constraintTop_toTopOf="@+id/recycler_view_series"
             app:layout_constraintVertical_bias="0.396"
             tools:visibility="visible" />
 

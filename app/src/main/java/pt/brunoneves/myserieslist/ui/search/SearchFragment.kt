@@ -55,19 +55,19 @@ class SearchFragment : Fragment() {
             }
 
             requireActivity().runOnUiThread {
-                adapter.data = series
-                if (adapter.data.isEmpty()) {
-                    binding.recyclerViewSerie.visibility = View.GONE
+                adapter.series = series
+                if (adapter.series.isEmpty()) {
+                    binding.recyclerViewSeries.visibility = View.GONE
                     binding.NoResults.visibility = View.VISIBLE
                 } else {
-                    binding.recyclerViewSerie.visibility = View.VISIBLE
+                    binding.recyclerViewSeries.visibility = View.VISIBLE
                     binding.progressBar.visibility = View.GONE
                     binding.NoResults.visibility = View.GONE
                 }
             }
         }
 
-        binding.recyclerViewSerie.adapter = adapter
+        binding.recyclerViewSeries.adapter = adapter
 
         // Inflate the layout for this fragment
         return binding.root
@@ -88,12 +88,12 @@ class SearchFragment : Fragment() {
                     }
 
                     requireActivity().runOnUiThread {
-                        adapter.data = series
-                        if (adapter.data.isEmpty()) {
-                            binding.recyclerViewSerie.visibility = View.GONE
+                        adapter.series = series
+                        if (adapter.series.isEmpty()) {
+                            binding.recyclerViewSeries.visibility = View.GONE
                             binding.NoResults.visibility = View.VISIBLE
                         } else {
-                            binding.recyclerViewSerie.visibility = View.VISIBLE
+                            binding.recyclerViewSeries.visibility = View.VISIBLE
                             binding.progressBar.visibility = View.GONE
                             binding.NoResults.visibility = View.GONE
                         }
