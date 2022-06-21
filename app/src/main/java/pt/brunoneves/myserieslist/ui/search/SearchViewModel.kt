@@ -21,7 +21,7 @@ class SearchViewModel (app: Application) : AndroidViewModel(app) {
         return SeriesNetwork.serie_service.getPopularSeries().results
     }
 
-    suspend fun getSeriesByName(name: String?): List<Series> {
+    suspend fun getSeriesByName(name: String): List<Series> {
         return SeriesNetwork.serie_service.getSeriesByName(name).results
     }
 }

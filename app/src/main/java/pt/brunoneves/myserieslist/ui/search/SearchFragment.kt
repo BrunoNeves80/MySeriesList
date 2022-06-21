@@ -80,7 +80,7 @@ class SearchFragment : Fragment() {
         val searchView = searchItem.actionView as SearchView
         searchView.queryHint = "@string/query_hint"
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(name: String?): Boolean {
+            override fun onQueryTextSubmit(name: String): Boolean {
                 CoroutineScope(Dispatchers.IO).launch {
                     var series = searchViewModel.getSeriesByName(name)
                     series = series.sortedBy {
