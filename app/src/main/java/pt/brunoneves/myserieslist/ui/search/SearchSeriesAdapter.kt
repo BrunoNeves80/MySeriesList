@@ -28,13 +28,13 @@ class SearchSeriesAdapter: RecyclerView.Adapter<SearchSeriesAdapter.SearchSerieV
 
     override fun onBindViewHolder(holder: SearchSerieViewHolder, position: Int) {
         val item = series[position]
-        
+
         var options = RequestOptions()
             .centerCrop()
             .placeholder(R.mipmap.ic_launcher_round)
             .error(R.mipmap.ic_launcher_round)
 
-        holder.serieList.text = item.name
+        holder.title.text = item.name
         Glide.with(holder.image)
             .load("https://image.tmdb.org/t/p/w300" + item.poster_path )
             .apply(options)
@@ -48,7 +48,7 @@ class SearchSeriesAdapter: RecyclerView.Adapter<SearchSeriesAdapter.SearchSerieV
     override fun getItemCount(): Int = series.size
 
     class SearchSerieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val serieList: TextView = itemView.findViewById(R.id.serie_title)
+        val title: TextView = itemView.findViewById(R.id.serie_title)
         val image: ImageView = itemView.findViewById(R.id.serie_poster)
     }
 }
