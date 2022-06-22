@@ -94,8 +94,8 @@ class SearchFragment : Fragment() {
         return super.onCreateOptionsMenu(menu, inflater)
     }
 
-    fun loadPopularSeries(series: List<Series>) {
-            series = series.sortedBy {
+    fun loadPopularSeries(unsortedSeries: List<Series>) {
+            val series = unsortedSeries.sortedBy {
                 it.name
             }
 
