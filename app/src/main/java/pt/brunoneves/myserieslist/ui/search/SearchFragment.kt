@@ -67,22 +67,8 @@ class SearchFragment : Fragment() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(name: String): Boolean {
                 CoroutineScope(Dispatchers.IO).launch {
-                    var series = searchViewModel.getSeriesByName(name)
-                    series = series.sortedBy {
-                        it.name
-                    }
-
-                    requireActivity().runOnUiThread {
-                        adapter.series = series
-                        if (adapter.series.isEmpty()) {
-                            binding.recyclerViewSeries.visibility = View.GONE
-                            binding.NoResults.visibility = View.VISIBLE
-                        } else {
-                            binding.recyclerViewSeries.visibility = View.VISIBLE
-                            binding.progressBar.visibility = View.GONE
-                            binding.NoResults.visibility = View.GONE
-                        }
-                    }
+                    val series = searchViewModel.getSeriesByName(name)
+                    loadPopularSeries(series)
                 }
                 return true
             }
