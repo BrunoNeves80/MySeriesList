@@ -10,6 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.brunoneves.myserieslist.R
+import pt.brunoneves.myserieslist.data.model.Series
 import pt.brunoneves.myserieslist.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
@@ -45,7 +46,11 @@ class SearchFragment : Fragment() {
             .get(SearchViewModel::class.java)
 
         adapter = SearchSeriesAdapter()
-        loadPopularSeries()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val series = searchViewModel.getPopularSeries()
+            loadPopularSeries(series)
+        }
 
         binding.recyclerViewSeries.adapter = adapter
 
@@ -89,9 +94,7 @@ class SearchFragment : Fragment() {
         return super.onCreateOptionsMenu(menu, inflater)
     }
 
-    fun loadPopularSeries() {
-        CoroutineScope(Dispatchers.IO).launch {
-            var series = searchViewModel.getPopularSeries()
+    fun loadPopularSeries(series: List<Series>) {
             series = series.sortedBy {
                 it.name
             }
