@@ -49,7 +49,7 @@ class SearchFragment : Fragment() {
 
         CoroutineScope(Dispatchers.IO).launch {
             val series = searchViewModel.getPopularSeries()
-            loadPopularSeries(series)
+            loadSeries(series)
         }
 
         binding.recyclerViewSeries.adapter = adapter
@@ -68,7 +68,7 @@ class SearchFragment : Fragment() {
             override fun onQueryTextSubmit(name: String): Boolean {
                 CoroutineScope(Dispatchers.IO).launch {
                     val series = searchViewModel.getSeriesByName(name)
-                    loadPopularSeries(series)
+                    loadSeries(series)
                 }
                 return true
             }
@@ -80,7 +80,7 @@ class SearchFragment : Fragment() {
         return super.onCreateOptionsMenu(menu, inflater)
     }
 
-    fun loadPopularSeries(unsortedSeries: List<Series>) {
+    fun loadSeries(unsortedSeries: List<Series>) {
             val series = unsortedSeries.sortedBy {
                 it.name
             }
@@ -97,5 +97,4 @@ class SearchFragment : Fragment() {
                 }
             }
         }
-    }
 }
