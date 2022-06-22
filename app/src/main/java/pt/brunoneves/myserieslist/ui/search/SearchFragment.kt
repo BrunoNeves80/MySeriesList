@@ -81,20 +81,20 @@ class SearchFragment : Fragment() {
     }
 
     fun loadSeries(unsortedSeries: List<Series>) {
-            val series = unsortedSeries.sortedBy {
-                it.name
-            }
+        val series = unsortedSeries.sortedBy {
+            it.name
+        }
 
-            requireActivity().runOnUiThread {
-                adapter.series = series
-                if (adapter.series.isEmpty()) {
-                    binding.recyclerViewSeries.visibility = View.GONE
-                    binding.NoResults.visibility = View.VISIBLE
-                } else {
-                    binding.recyclerViewSeries.visibility = View.VISIBLE
-                    binding.progressBar.visibility = View.GONE
-                    binding.NoResults.visibility = View.GONE
-                }
+        requireActivity().runOnUiThread {
+            adapter.series = series
+            if (adapter.series.isEmpty()) {
+                binding.recyclerViewSeries.visibility = View.GONE
+                binding.NoResults.visibility = View.VISIBLE
+            } else {
+                binding.recyclerViewSeries.visibility = View.VISIBLE
+                binding.progressBar.visibility = View.GONE
+                binding.NoResults.visibility = View.GONE
             }
         }
+    }
 }
