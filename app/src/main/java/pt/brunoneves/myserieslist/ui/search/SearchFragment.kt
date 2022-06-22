@@ -45,24 +45,7 @@ class SearchFragment : Fragment() {
             .get(SearchViewModel::class.java)
 
         adapter = SearchSeriesAdapter()
-        CoroutineScope(Dispatchers.IO).launch {
-            var series = searchViewModel.getPopularSeries()
-            series = series.sortedBy {
-                it.name
-            }
-
-            requireActivity().runOnUiThread {
-                adapter.series = series
-                if (adapter.series.isEmpty()) {
-                    binding.recyclerViewSeries.visibility = View.GONE
-                    binding.NoResults.visibility = View.VISIBLE
-                } else {
-                    binding.recyclerViewSeries.visibility = View.VISIBLE
-                    binding.progressBar.visibility = View.GONE
-                    binding.NoResults.visibility = View.GONE
-                }
-            }
-        }
+        loadPopularSeries()
 
         binding.recyclerViewSeries.adapter = adapter
 
@@ -104,5 +87,26 @@ class SearchFragment : Fragment() {
             }
         })
         return super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    fun loadPopularSeries() {
+        CoroutineScope(Dispatchers.IO).launch {
+            var series = searchViewModel.getPopularSeries()
+            series = series.sortedBy {
+                it.name
+            }
+
+            requireActivity().runOnUiThread {
+                adapter.series = series
+                if (adapter.series.isEmpty()) {
+                    binding.recyclerViewSeries.visibility = View.GONE
+                    binding.NoResults.visibility = View.VISIBLE
+                } else {
+                    binding.recyclerViewSeries.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
+                    binding.NoResults.visibility = View.GONE
+                }
+            }
+        }
     }
 }
