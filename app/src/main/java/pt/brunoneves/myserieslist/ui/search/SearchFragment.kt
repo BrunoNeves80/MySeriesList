@@ -18,13 +18,7 @@ class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
 
-    private val searchViewModel: SearchViewModel by lazy {
-        val activity = requireNotNull(this.activity) {
-            "You can only access the viewModel after onActivityCreated()"
-        }
-        ViewModelProvider(this, SearchViewModel.Factory(activity.application))
-            .get(SearchViewModel::class.java)
-    }
+    private lateinit var searchViewModel: SearchViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +32,10 @@ class SearchFragment : Fragment() {
         binding.lifecycleOwner = this
 
         setHasOptionsMenu(true)
+
+        // Get a reference to the ViewModel associated with this fragment.
+        searchViewModel = ViewModelProvider(this)
+            .get(SearchViewModel::class.java)
 
         adapter = SearchSeriesAdapter()
 
