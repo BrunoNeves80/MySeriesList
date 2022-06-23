@@ -1,6 +1,7 @@
 package pt.brunoneves.myserieslist.network
 
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface SeriesService {
 
@@ -12,4 +13,7 @@ interface SeriesService {
 
     @GET("tv/popular?api_key=$API_KEY")
     suspend fun getPopularSeries(): SeriesResponse
+
+    @GET("search/tv?api_key=$API_KEY")
+    suspend fun getSeriesByName(@Query("query") name: String?): SeriesResponse
 }

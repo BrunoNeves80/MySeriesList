@@ -11,8 +11,8 @@ import java.io.Serializable
 data class Series(
     val name: String,
     val overview: String?,
-    val poster_path: String,
-    val first_air_date: String,
+    val poster_path: String?,
+    val first_air_date: String?,
     val vote_average: String,
 ) : Serializable, Parcelable {
     @PrimaryKey(autoGenerate = true)

@@ -4,24 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.search.SearchFragment">
 
+    <data>
+        <variable
+            name="searchViewModel"
+            type="pt.brunoneves.myserieslist.network.SeriesService" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/search_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_serie"
+            android:id="@+id/recycler_view_series"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             tools:listitem="@layout/item_serie"/>
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/recycler_view_series"
+            app:layout_constraintVertical_bias="0.396"
+            tools:visibility="visible" />
+
         <TextView
+            android:id="@+id/No_results"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/Search_fragment"
-            android:textSize="30dp" />
+            android:gravity="center"
+            android:text="@string/no_results"
+            android:textSize="16sp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
