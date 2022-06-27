@@ -16,4 +16,7 @@ interface SeriesService {
 
     @GET("search/tv?api_key=$API_KEY")
     suspend fun getSeriesByName(@Query("query") name: String?): SeriesResponse
+
+    @GET("tv/{tv_id}?api_key=$API_KEY")
+    suspend fun getDetailSeries(@Query("id") id: Int): SeriesResponse
 }
