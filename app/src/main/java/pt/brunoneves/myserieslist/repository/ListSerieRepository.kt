@@ -21,4 +21,8 @@ class ListSerieRepository constructor(
     suspend fun getSeriesByName(name: String): List<Series> {
         return SeriesNetwork.serie_service.getSeriesByName(name).results
     }
+
+    suspend fun getDetailSeries(id: Int): List<Series> {
+        return SeriesNetwork.serie_service.getDetailSeries(id).results
+    }
 }
