@@ -1,11 +1,17 @@
 package pt.brunoneves.myserieslist.ui.details
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import pt.brunoneves.myserieslist.data.local.getDatabase
+import pt.brunoneves.myserieslist.network.SeriesDetailsResponse
 import pt.brunoneves.myserieslist.repository.ListSerieRepository
 
-class DetailsViewModel constructor(
-    private val repository: ListSerieRepository
-) : ViewModel() {
+class DetailsViewModel (app: Application) : AndroidViewModel(app) {
+    private val seriesRepository = ListSerieRepository(getDatabase(app))
+
+    suspend fun getSeriesDetails(id: Int): SeriesDetailsResponse {
+        return seriesRepository.getSeriesDetails(id)
+    }
 
 //    fun addToList(serie: Serie) {
 //        CoroutineScope(Dispatchers.IO).launch {
