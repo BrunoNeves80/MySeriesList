@@ -19,5 +19,5 @@ interface SeriesService {
     suspend fun getSeriesByName(@Query("query") name: String?): SeriesResponse
 
     @GET("tv/{tv_id}?api_key=$API_KEY")
-    suspend fun getDetailSeries(@Path("tv_id") id: Int): SeriesDetailsResponse
+    suspend fun getSeriesDetails(@Path("tv_id") id: Int): SeriesDetailsResponse
 }
