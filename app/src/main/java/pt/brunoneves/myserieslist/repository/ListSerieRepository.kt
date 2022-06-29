@@ -2,7 +2,9 @@ package pt.brunoneves.myserieslist.repository
 
 import pt.brunoneves.myserieslist.data.local.SeriesDatabase
 import pt.brunoneves.myserieslist.data.model.Series
+import pt.brunoneves.myserieslist.network.SeriesDetailsResponse
 import pt.brunoneves.myserieslist.network.SeriesNetwork
+import retrofit2.Call
 
 class ListSerieRepository constructor(
     private val database: SeriesDatabase
@@ -22,7 +24,7 @@ class ListSerieRepository constructor(
         return SeriesNetwork.serie_service.getSeriesByName(name).results
     }
 
-    suspend fun getDetailSeries(id: Int): List<Series> {
-        return SeriesNetwork.serie_service.getDetailSeries(id).results
+    suspend fun getDetailSeries(id: Int): SeriesDetailsResponse {
+        return SeriesNetwork.serie_service.getDetailSeries(id)
     }
 }
