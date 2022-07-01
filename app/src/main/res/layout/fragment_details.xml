@@ -21,7 +21,7 @@
                 <ImageView
                     android:id="@+id/detail_serie_poster"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
+                    android:layout_height="550dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
@@ -104,6 +104,7 @@
                     tools:text="year launch"
                     tools:visibility="visible" />
 
+
                 <TextView
                     android:id="@+id/tv_vote_average"
                     android:layout_width="wrap_content"
@@ -113,11 +114,11 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="280dp"
-                    android:layout_marginRight="280dp"
+                    android:layout_marginStart="79dp"
+                    android:layout_marginLeft="79dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="271dp"
+                    android:layout_marginRight="271dp"
                     android:text="Average "
                     android:textColor="@color/cardview_dark_background"
                     tools:text="average"
@@ -129,10 +130,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_release_date"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
                     android:text="Average"
-                    android:textColor="@color/cardview_dark_background"/>
-
+                    android:textColor="@color/cardview_dark_background" />
 
                 <TextView
                     android:id="@+id/episodes"
@@ -183,11 +183,11 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginStart="174dp"
                     android:layout_marginLeft="174dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="162dp"
                     android:layout_marginRight="162dp"
                     android:text="Seasons"
-                    android:textColor="@color/cardview_dark_background"/>
+                    android:textColor="@color/cardview_dark_background" />
 
                 <TextView
                     android:id="@+id/tv_number_Seasons"
@@ -198,11 +198,11 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginStart="261dp"
-                    android:layout_marginLeft="261dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="76dp"
-                    android:layout_marginRight="76dp"
+                    android:layout_marginStart="262dp"
+                    android:layout_marginLeft="262dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="75dp"
+                    android:layout_marginRight="75dp"
                     android:text="Episodes "
                     android:textColor="@color/cardview_dark_background"
                     android:visibility="gone"
