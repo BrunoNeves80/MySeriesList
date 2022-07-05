@@ -7,15 +7,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_details.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentDetailsBinding
 import pt.brunoneves.myserieslist.repository.ListSerieRepository
@@ -45,7 +49,6 @@ class DetailsFragment : Fragment() {
         CoroutineScope(Dispatchers.IO).launch {
             var id = arguments?.getInt("id", 0)
             var series = detailsViewModel.getSeriesDetails(id!!)
-            Log.i("tag", "id $series")
             var options = RequestOptions()
                 .centerCrop()
                 .placeholder(R.mipmap.ic_launcher_round)
