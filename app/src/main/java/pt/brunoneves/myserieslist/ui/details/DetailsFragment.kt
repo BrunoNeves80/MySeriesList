@@ -1,30 +1,21 @@
 package pt.brunoneves.myserieslist.ui.details
 
-
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_details.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.databinding.FragmentDetailsBinding
-import pt.brunoneves.myserieslist.repository.ListSerieRepository
-import pt.brunoneves.myserieslist.ui.search.SearchSeriesAdapter
-import pt.brunoneves.myserieslist.ui.search.SearchViewModel
+
 
 class DetailsFragment : Fragment() {
     private lateinit var detailsViewModel: DetailsViewModel
