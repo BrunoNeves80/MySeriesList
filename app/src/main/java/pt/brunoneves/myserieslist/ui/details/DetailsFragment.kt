@@ -20,7 +20,7 @@ import pt.brunoneves.myserieslist.databinding.FragmentDetailsBinding
 class DetailsFragment : Fragment() {
     private lateinit var detailsViewModel: DetailsViewModel
 
-    var options = RequestOptions()
+    private val options = RequestOptions()
         .centerCrop()
         .placeholder(R.mipmap.ic_launcher_round)
         .error(R.mipmap.ic_launcher_round)
@@ -28,7 +28,7 @@ class DetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = DataBindingUtil.inflate<FragmentDetailsBinding>(
             inflater,
             R.layout.fragment_details, container, false
@@ -43,8 +43,8 @@ class DetailsFragment : Fragment() {
         binding.lifecycleOwner = this
 
         CoroutineScope(Dispatchers.IO).launch {
-            var id = arguments?.getInt("id", 0)
-            var series = detailsViewModel.getSeriesDetails(id!!)
+            val id = arguments?.getInt("id", 0)
+            val series = detailsViewModel.getSeriesDetails(id!!)
 
             requireActivity().runOnUiThread {
                 binding.tvSerieTitle.text = series.name
