@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -37,6 +39,11 @@ class ListSeriesAdapter : RecyclerView.Adapter<ListSeriesAdapter.ListSerieViewHo
             .load("https://image.tmdb.org/t/p/w300" + item.poster_path)
             .apply(options)
             .into(holder.image)
+
+        holder.image.setOnClickListener { view: View ->
+            val bundle = bundleOf("id" to item.id)
+            view.findNavController().navigate(R.id.action_mainFragment_to_detailsFragment, bundle)
+        }
     }
 
     override fun getItemCount(): Int = data.size

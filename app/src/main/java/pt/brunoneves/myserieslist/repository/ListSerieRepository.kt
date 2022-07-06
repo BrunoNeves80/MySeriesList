@@ -2,6 +2,7 @@ package pt.brunoneves.myserieslist.repository
 
 import pt.brunoneves.myserieslist.data.local.SeriesDatabase
 import pt.brunoneves.myserieslist.data.model.Series
+import pt.brunoneves.myserieslist.network.SeriesDetailsResponse
 import pt.brunoneves.myserieslist.network.SeriesNetwork
 
 class ListSerieRepository constructor(
@@ -20,5 +21,9 @@ class ListSerieRepository constructor(
 
     suspend fun getSeriesByName(name: String): List<Series> {
         return SeriesNetwork.serie_service.getSeriesByName(name).results
+    }
+
+    suspend fun getSeriesDetails(id: Int): SeriesDetailsResponse {
+        return SeriesNetwork.serie_service.getSeriesDetails(id)
     }
 }

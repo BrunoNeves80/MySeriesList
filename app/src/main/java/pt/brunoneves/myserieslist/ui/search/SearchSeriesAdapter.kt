@@ -5,12 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import pt.brunoneves.myserieslist.R
 import pt.brunoneves.myserieslist.data.model.Series
+import pt.brunoneves.myserieslist.network.SeriesResponse
+import pt.brunoneves.myserieslist.ui.details.DetailsViewModel
 
 class SearchSeriesAdapter: RecyclerView.Adapter<SearchSeriesAdapter.SearchSerieViewHolder>() {
     var series = listOf<Series>()
@@ -41,7 +44,8 @@ class SearchSeriesAdapter: RecyclerView.Adapter<SearchSeriesAdapter.SearchSerieV
             .into(holder.image)
 
         holder.image.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_searchFragment_to_detailsFragment)
+            val bundle = bundleOf("id" to item.id )
+            view.findNavController().navigate(R.id.action_searchFragment_to_detailsFragment, bundle)
         }
     }
 
