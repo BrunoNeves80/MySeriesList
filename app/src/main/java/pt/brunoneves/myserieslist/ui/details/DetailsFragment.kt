@@ -57,16 +57,9 @@ class DetailsFragment : Fragment() {
                     .load("https://image.tmdb.org/t/p/w300" + series.poster_path)
                     .apply(options)
                     .into(detail_serie_poster)
-                binding.detailSeriePoster.visibility = View.VISIBLE
-                binding.tvSerieTitle.visibility = View.VISIBLE
-                binding.tvDescription.visibility = View.VISIBLE
-                binding.tvReleaseDate.visibility = View.VISIBLE
-                binding.tvVoteAverage.visibility = View.VISIBLE
-                binding.tvNumberEpisodes.visibility = View.VISIBLE
-                binding.tvNumberSeasons.visibility = View.VISIBLE
+                binding.scrollView.visibility = View.VISIBLE
                 binding.progressBar.visibility = View.GONE
                 binding.NoResults.visibility = View.GONE
-
             }
         }
 
