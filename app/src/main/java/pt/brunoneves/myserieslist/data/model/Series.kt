@@ -9,13 +9,11 @@ import java.io.Serializable
 @Entity(tableName = "series")
 @Parcelize
 data class Series(
+    @PrimaryKey
     val id: Int,
     val name: String,
     val overview: String?,
     val poster_path: String?,
     val first_air_date: String?,
     val vote_average: String,
-) : Serializable, Parcelable {
-    @PrimaryKey(autoGenerate = true)
-    var id_series: Int = 0
-}
+) : Serializable, Parcelable
