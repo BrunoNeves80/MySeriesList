@@ -20,6 +20,11 @@ import pt.brunoneves.myserieslist.databinding.FragmentDetailsBinding
 class DetailsFragment : Fragment() {
     private lateinit var detailsViewModel: DetailsViewModel
 
+    var options = RequestOptions()
+        .centerCrop()
+        .placeholder(R.mipmap.ic_launcher_round)
+        .error(R.mipmap.ic_launcher_round)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,10 +45,6 @@ class DetailsFragment : Fragment() {
         CoroutineScope(Dispatchers.IO).launch {
             var id = arguments?.getInt("id", 0)
             var series = detailsViewModel.getSeriesDetails(id!!)
-            var options = RequestOptions()
-                .centerCrop()
-                .placeholder(R.mipmap.ic_launcher_round)
-                .error(R.mipmap.ic_launcher_round)
 
             requireActivity().runOnUiThread {
                 binding.tvSerieTitle.text = series.name
