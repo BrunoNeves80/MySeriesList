@@ -11,7 +11,9 @@
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -65,9 +67,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:text="Serie title"
-                    tools:visibility="visible" />
+                    tools:text="Serie title" />
 
                 <TextView
                     android:id="@+id/tv_description"
@@ -81,9 +81,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:textColor="@color/cardview_dark_background"
-                    android:visibility="gone"
-                    tools:text="Description"
-                    tools:visibility="visible" />
+                    tools:text="Description" />
 
                 <TextView
                     android:id="@+id/tv_release_date"
@@ -100,9 +98,7 @@
                     android:layout_marginEnd="283dp"
                     android:layout_marginRight="283dp"
                     android:textColor="@color/cardview_dark_background"
-                    android:visibility="gone"
-                    tools:text="year launch"
-                    tools:visibility="visible" />
+                    tools:text="year launch" />
 
 
                 <TextView
@@ -121,8 +117,7 @@
                     android:layout_marginRight="271dp"
                     android:text="Average "
                     android:textColor="@color/cardview_dark_background"
-                    tools:text="average"
-                    tools:visibility="visible" />
+                    tools:text="average" />
 
                 <TextView
                     android:id="@+id/average"
@@ -168,9 +163,7 @@
                     android:layout_marginRight="76dp"
                     android:text="Episodes "
                     android:textColor="@color/cardview_dark_background"
-                    android:visibility="gone"
-                    tools:text="number episodes"
-                    tools:visibility="visible" />
+                    tools:text="number episodes" />
 
                 <TextView
                     android:id="@+id/seasons"
@@ -205,9 +198,7 @@
                     android:layout_marginRight="75dp"
                     android:text="Episodes "
                     android:textColor="@color/cardview_dark_background"
-                    android:visibility="gone"
-                    tools:text="number episodes"
-                    tools:visibility="visible" />
+                    tools:text="number episodes" />
 
             </RelativeLayout>
 
